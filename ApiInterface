@@ -1,0 +1,28 @@
+    //Post Api    
+
+    @GET("vehicleDetails")
+    Call<VehicleTypePojo> vehicleDetails();    
+
+
+    //Post Api
+
+    @FormUrlEncoded
+    @POST("driverMatchVerificationToken")
+    Call<RegisterLoginPojo> driverMatchVerificationToken(@Field("id") String id,
+                                                         @Field("token") String token);
+
+
+    //Multipart Api
+
+    @Multipart
+    @POST("driverRegister")
+    Call<RegisterLoginPojo> userRegister(@Part("driverName") RequestBody name,
+                                         @Part("driverEmail") RequestBody email,
+                                         @Part("driverPhoneNumber") RequestBody phone,
+                                         @Part("driverPassword") RequestBody password,
+                                         @Part("device_type") RequestBody device_type,
+                                         @Part("reg_id") RequestBody reg_id,
+                                         @Part("latitude") RequestBody latitude,
+                                         @Part("longitude") RequestBody longitude,
+                                         @Part MultipartBody.Part driverImage);
+
