@@ -26,3 +26,13 @@
                                          @Part("longitude") RequestBody longitude,
                                          @Part MultipartBody.Part driverImage);
 
+
+    //request body text
+
+    RequestBody body = RequestBody.create(MediaType.parse("text/plain"), text);
+
+    
+    //multipart image
+    File file = new File(filePath);
+    RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+    MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
